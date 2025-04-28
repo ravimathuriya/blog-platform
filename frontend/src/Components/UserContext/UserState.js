@@ -18,7 +18,8 @@ const UserState = (props) => {
     formData.append("profilePic", profilePic);
 
     const response = await fetch(`${url}/register`, {
-      method: "POST", // Request method
+      method: "POST", // Request method,
+      credentials: "include",
       body: formData,
     });
 
@@ -37,6 +38,7 @@ const UserState = (props) => {
       headers: {
         "Content-type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         username: username,
         email: email,
@@ -55,6 +57,7 @@ const UserState = (props) => {
   const logoutUser = async () => {
     const response = await fetch(`${url}/logout`, {
       method: "POST",
+      credentials: "include",
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       },
@@ -71,6 +74,7 @@ const UserState = (props) => {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       },
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -86,6 +90,7 @@ const UserState = (props) => {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       },
+      credentials: "include",
       body: newformData,
     });
 
@@ -105,6 +110,7 @@ const UserState = (props) => {
         "Content-type": "application/json",
         accessToken: localStorage.getItem("accessToken"),
       },
+      credentials: "include",
       body: JSON.stringify({
         oldPassword: oldpassword,
         newPassword: newpassword,
