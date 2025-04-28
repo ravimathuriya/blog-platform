@@ -16,6 +16,7 @@ const BlogState = (props) => {
       headers:{
         "accessToken":localStorage.getItem("accessToken")
       },
+      credentials: "include",
       body: formData,
     });
 
@@ -29,7 +30,8 @@ const BlogState = (props) => {
         method:"GET",
         headers:{
             "accessToken":localStorage.getItem("accessToken")
-        }
+        },
+      credentials: "include",
     });
 
     const data = await response.json()
@@ -42,7 +44,8 @@ const BlogState = (props) => {
         method:"DELETE",
         headers:{
             "accessToken":localStorage.getItem("accessToken")
-        }
+        },
+      credentials: "include"
     });
     const data = response.json()
     return (data)
@@ -61,6 +64,7 @@ const BlogState = (props) => {
       headers:{
           "accessToken":localStorage.getItem("accessToken")
       },
+      credentials: "include",
       body:formData
   });
 
