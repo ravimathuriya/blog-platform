@@ -1,6 +1,6 @@
 import blogContext from "./BlogContext";
 
-const blogUrl = "https://blog-platform-1196yen1t-ravi-mathuriyas-projects.vercel.app/api/v1/blogs";
+const blogUrl = "https://blog-platform-backend-9q8x.onrender.com/api/v1/blogs";
 
 const BlogState = (props) => {
   const addNewBlog = async ({ title, description, username }, blogPic) => {
