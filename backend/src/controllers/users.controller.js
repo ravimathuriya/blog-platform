@@ -227,10 +227,14 @@ const changeProfileImage = asyncHandler(async(req, res)=>{
     })
   }
 
+  const newImageURL = await newImage.url
+
+  const secureNewImageURL = await newImageURL("http://", "https://") 
+  
   const updateImage = await User.findByIdAndUpdate(
     req.user._id,
     {$set:{
-      profilePic:newImage.url
+      profilePic:secureNewImageURL
     }},
     {new:true}
   )
