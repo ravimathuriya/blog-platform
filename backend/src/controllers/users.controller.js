@@ -60,6 +60,10 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   }
 
+  const ImageUrl = await profileImage.url
+
+  const sercureImageURL = await ImageUrl.replace ("http://", "https://")
+  
   //create the User on database
 
   const createUser = await User.create({
@@ -69,7 +73,7 @@ const registerUser = asyncHandler(async (req, res) => {
     password: password,
     dob: dob,
     country: country,
-    profilePic: profileImage.url,
+    profilePic: sercureImageURL,
   });
 
   //if user not created in database
