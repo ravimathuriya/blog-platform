@@ -1,6 +1,6 @@
 import blogContext from "./BlogContext";
 
-const blogUrl = "http://localhost:5000/api/v1/blogs";
+const blogUrl = "https://blog-platform-1196yen1t-ravi-mathuriyas-projects.vercel.app/api/v1/blogs";
 
 const BlogState = (props) => {
   const addNewBlog = async ({ title, description, username }, blogPic) => {
