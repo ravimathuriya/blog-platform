@@ -1,6 +1,6 @@
 import userContext from "./UserContext";
 
-const url = "http://localhost:5000/api/v1/users";
+const url = "https://blog-platform-1196yen1t-ravi-mathuriyas-projects.vercel.app/api/v1/users";
 
 const UserState = (props) => {
   const registerUser = async (
