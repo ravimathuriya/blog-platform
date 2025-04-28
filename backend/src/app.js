@@ -6,7 +6,7 @@ import userRouter from "./routes/user.routes.js";
 import blogRouter from "./routes/blog.routes.js";
 const app = express();
 
-app.use(cors({ origin:"*", credentials: true }));
+app.use(cors({ origin:"https://blog-platform-frontend-2x10.onrender.com", credentials: true }));
 
 app.use(cookieParser());
 
