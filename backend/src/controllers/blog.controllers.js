@@ -36,6 +36,10 @@ const addBlog = asyncHandler(async (req, res) => {
     });
   }
 
+  const blogImageURL = await blogImage.url
+
+  const secureBlogImageURL = await blogImageURL.replace("http://", "https://") 
+
   const userDetails = await User.aggregate([
     {
       $match: {
@@ -60,7 +64,7 @@ const addBlog = asyncHandler(async (req, res) => {
   const newBlog = await Blog.create({
     title: title,
     description: description,
-    blogPic: blogImage.url,
+    blogPic: secureBlogImageURL,
     postedBy: userDetails,
   });
 
@@ -124,8 +128,14 @@ const updateBlog = asyncHandler(async (req, res) => {
         message: "Image requried for upload",
       });
     }
+
+    const updatedblogImageURL = await uploadBlogImage.url
+
+  const secureUpdatedBlogImageURL = await updatedblogImageURL.replace("http://", "https://")
+    
     // If image uploaded successfully, include it in the update fields
-    updateFields.blogPic = uploadBlogImage.url;
+    updateFields.blogPic = secureUpdatedBlogImageURL;
+   
   }
 
   const updateBlog = await Blog.findByIdAndUpdate(
