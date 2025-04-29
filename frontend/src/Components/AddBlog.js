@@ -90,6 +90,7 @@ function AddBlog(props) {
             name='description'
             className="form-control"
             id="exampleInputDescription"
+            style={{height:"50px"}}
             onChange={onChange}
           />
         </div>
