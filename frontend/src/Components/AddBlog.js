@@ -37,7 +37,7 @@ function AddBlog(props) {
   }
 
   const handleBlog = async(e) =>{
-    
+    e.preventDefault();
     notify("In progress. Please wait...", "warning");
     const newBlog = await addNewBlog(blog, blogPic);
 
